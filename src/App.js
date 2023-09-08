@@ -13,6 +13,15 @@ switch (action.type) {
   case 'withdraw':
       if(state.balance > 0) return {...state, balance:state.balance-50};
       return state;
+  case 'get_loan':
+      if(state.loan === 0) return {...state, balance:state.balance+5000, loan:5000};
+      return state;
+  case 'pay_loan':
+      if(state.balance >= 5000) return {...state, balance:state.balance-5000, loan:state.loan-5000};
+      return state;
+  case 'close_account':
+      if(state.balance ===0 && state.loan ===0) return {...initialState};
+      return state;
   default:
     return state;
 }
@@ -21,15 +30,15 @@ export default function App() {
  const [{isActive,balance,loan},dispatch]= useReducer(reducer, initialState);
   return (
     <div className="App">
-      <div className="container text-center my-3">
+      <div className="container text-center my-5">
       <h1>WELCOME TO REACT BANK</h1>
-      <div className="row bg-secondary p-5">
+      <div className="row bg-secondary p-5 mt-5">
         <div className="col text-white h3">Balance : {balance}</div>
-        <div className="col text-white h3">Loan Amount : {}</div>
+        <div className="col text-white h3">Loan Amount : {loan}</div>
       </div>
-      <div className="row my-3">
+      <div className="row my-5 justify-content-evenly">
         <button 
-          className="btn btn-primary m-1 col-3" 
+          className="btn btn-outline-success m-1 col-3" 
           onClick={()=>dispatch({type:'open_account'})}
           disabled={isActive}>
             Open Account
@@ -45,6 +54,24 @@ export default function App() {
           onClick={()=>dispatch({type:'withdraw'})}
           disabled={!isActive}>
             Withdraw 50
+        </button>
+        <button 
+          className="btn btn-primary m-1 col-3" 
+          onClick={()=>dispatch({type:'get_loan'})}
+          disabled={!isActive}>
+            Get Loan
+        </button>
+        <button 
+          className="btn btn-primary m-1 col-3" 
+          onClick={()=>dispatch({type:'pay_loan'})}
+          disabled={!isActive}>
+            Pay Loan
+        </button>
+        <button 
+          className="btn btn-outline-danger m-1 col-3" 
+          onClick={()=>dispatch({type:'close_account'})}
+          disabled={!isActive}>
+            Close Account
         </button>
         
       </div>
