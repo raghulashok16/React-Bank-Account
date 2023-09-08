@@ -1,3 +1,4 @@
+import "../src/index.css";
 import React, { useReducer } from "react";
 const initialState = {
   isActive:false,
@@ -31,8 +32,8 @@ export default function App() {
   return (
     <div className="App">
       <div className="container text-center my-5">
-      <h1>WELCOME TO REACT BANK</h1>
-      <div className="row bg-secondary p-5 mt-5">
+      <h1 className="text-white">SIMPLE BANK ACCOUNT</h1>
+      <div className="row p-5 mt-5">
         <div className="col text-white h3">Balance : {balance}</div>
         <div className="col text-white h3">Loan Amount : {loan}</div>
       </div>
@@ -75,6 +76,11 @@ export default function App() {
         </button>
         
       </div>
+      <p>Note:</p>
+      <p>1. 500 will be credited when you open the account</p>
+      <p>2. 5000 will be credited when you get a loan and you can get ony a single loan</p>
+      <p>3. you can pay the loan amount 5000 from your bank account</p>
+      <p>4. you can close the bank account after you clear the loan and withdraw all the amount</p>
       </div>
     </div>
   );
