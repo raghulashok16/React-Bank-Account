@@ -39,7 +39,7 @@ export default function App() {
       </div>
       <div className="row my-5 justify-content-evenly">
         <button 
-          className="btn btn-outline-success m-1 col-3" 
+          className="btn btn-success m-1 col-3" 
           onClick={()=>dispatch({type:'open_account'})}
           disabled={isActive}>
             Open Account
@@ -69,18 +69,20 @@ export default function App() {
             Pay Loan
         </button>
         <button 
-          className="btn btn-outline-danger m-1 col-3" 
+          className="btn btn-danger m-1 col-3" 
           onClick={()=>dispatch({type:'close_account'})}
           disabled={!isActive}>
             Close Account
         </button>
         
       </div>
+      <div className="text-white text-start">
       <p>Note:</p>
-      <p>1. 500 will be credited when you open the account</p>
-      <p>2. 5000 will be credited when you get a loan and you can get ony a single loan</p>
+      <p>1. 500 will be credited when you open the account and you can deposit and withdraw amount</p>
+      <p>2. 5000 will be credited when you get a loan and you can get only a single loan</p>
       <p>3. you can pay the loan amount 5000 from your bank account</p>
       <p>4. you can close the bank account after you clear the loan and withdraw all the amount</p>
+      </div>
       </div>
     </div>
   );
