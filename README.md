@@ -1,7 +1,3 @@
-# React-Bank-Account
 Created with CodeSandbox
-[https://codesandbox.io/p/github/raghulashok16/React-Bank_Account](https://zf9ygk-3000.csb.app/)
-
-
-
+Page Link - https://monumental-bubblegum-257fc8.netlify.app/
 Used Bootstrap and useReducer hook.
